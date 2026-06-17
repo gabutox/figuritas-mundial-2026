@@ -9,7 +9,7 @@
 
 | Integrante | Módulo | Archivos que le tocan |
 |------------|--------|----------------------|
-| **Gabi (gabutox)** | Módulo Base | `Usuario.java`, `w_login`, `w_principal`, `w_usuarios`, `Seleccion.java`, `w_seleccion`, `Posicion.java`, `w_posicion` |
+| **Gabi (gabutox)** | Módulo Base | `Usuario.java`, `w_login`, `w_principal`, `w_usuarios`, `Seleccion.java`, `w_seleccion`, `Leyenda.java`, `w_leyenda` |
 | **Compañero 2** | Módulo Jugador | `Estadio.java`, `w_estadio`, `Jugador.java`, `w_jugador` |
 | **Compañero 3** | Módulo Figurita | `Figurita.java`, `w_figurita`, `ColeccionFigurita.java`, `w_coleccion` |
 
@@ -146,9 +146,9 @@ Copiar el estilo del archivo `w_usuarios.java` del proyecto de ejemplo del profe
 |-------|-----------|------------|
 | `Usuario` | id, nombre, usuario, clave | — |
 | `Seleccion` | id, nombre, confederacion, grupo | — |
-| `Posicion` | id, nombre | — |
+| `Leyenda` | id, nombre, pais, anioMundial, golesEnMundiales | — |
 | `Estadio` | id, nombre, ciudad, pais, capacidad | — |
-| `Jugador` | id, nombre, dorsal, seleccionId, posicionId | Seleccion + Posicion |
+| `Jugador` | id, nombre, dorsal, posicion, seleccionId | Seleccion |
 | `Figurita` | id, numero, tipo, jugadorId | Jugador |
 | `ColeccionFigurita` | id, usuarioId, figuritaId, estado, cantidad | Usuario + Figurita |
 

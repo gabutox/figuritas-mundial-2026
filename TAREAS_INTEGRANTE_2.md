@@ -5,7 +5,7 @@
 
 ## ANTES DE ARRANCAR
 
-Esperar a que el Integrante 1 (Gabi) termine y suba `Seleccion.java` y `Posicion.java`.
+Esperar a que el Integrante 1 (Gabi) termine y suba `Seleccion.java`.
 Hacer `git pull` para bajar sus cambios antes de empezar.
 
 ```
@@ -73,8 +73,8 @@ Seguir el mismo patron de los 4 metodos que usa el Integrante 1.
 
 ### Campos visuales:
 - `JTextField` para: id, nombre, dorsal
+- **`JTextField`** para posicion (texto libre: Portero, Defensa, etc.)
 - **`JComboBox`** para seleccionar la Seleccion (se llena con datos del archivo)
-- **`JComboBox`** para seleccionar la Posicion (se llena con datos del archivo)
 - `JTable` en un `JScrollPane`
 - Boton Nuevo, Boton Grabar
 

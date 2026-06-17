@@ -9,23 +9,23 @@
 |---------|--------|-------------|
 | `Usuario.java` | ✅ YA CREADA | Solo leerla, no modificar |
 | `Seleccion.java` | ✅ YA CREADA | Solo leerla, no modificar |
-| `Posicion.java` | ✅ YA CREADA | Solo leerla, no modificar |
-| `w_login.java` | ❌ CREAR VOS | Ventana de Login |
-| `w_principal.java` | ❌ CREAR VOS | Menu principal con botones |
+| `Leyenda.java` | ✅ YA CREADA | Solo leerla, no modificar |
+| `w_login.java` | ✅ HECHA | Login funcionando |
+| `w_principal.java` | ✅ HECHA | Menu principal funcionando |
 | `w_usuarios.java` | ❌ CREAR VOS | CRUD de Usuarios |
 | `w_seleccion.java` | ❌ CREAR VOS | CRUD de Selecciones |
-| `w_posicion.java` | ❌ CREAR VOS | CRUD de Posiciones |
+| `w_leyenda.java` | ❌ CREAR VOS | CRUD de Leyendas del Mundial |
 
 ---
 
 ## Orden recomendado para hacer las ventanas
 
 ```
-1. w_login        <- la mas simple, solo 2 campos y un boton
-2. w_principal    <- menu con botones que abren el resto
-3. w_usuarios     <- copiar el estilo de w_usuarios del proyecto del profe
-4. w_posicion     <- la mas simple (id + nombre), hacerla antes que seleccion
-5. w_seleccion    <- similar a posicion pero con mas campos
+1. w_login        <- HECHA
+2. w_principal    <- HECHA
+3. w_leyenda      <- la mas simple (5 campos, sin ComboBox)
+4. w_seleccion    <- similar a leyenda pero con otros campos
+5. w_usuarios     <- la dejamos para el final
 ```
 
 ---
