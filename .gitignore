@@ -10,3 +10,4 @@ Thumbs.db
 
 # Los archivos de datos SI se suben (son necesarios para que el proyecto arranque)
 # usuarios.txt, selecciones.txt, etc. -> se suben vacios inicialmente
+/proyecto_lenguaje_ii/nbproject/private/
