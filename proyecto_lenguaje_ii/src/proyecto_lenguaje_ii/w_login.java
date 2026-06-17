@@ -119,7 +119,7 @@ String pass = new String(txtClave.getPassword());
 for (Usuario u : estructura_usuarios) {
     if (u.getUsuario().equals(user) && u.getClave().equals(pass)) {
         JOptionPane.showMessageDialog(null, "Bienvenido " + u.getNombre());
-        // new w_principal().setVisible(true);  <- descomentar cuando este lista
+        new w_principal().setVisible(true);
         this.dispose();
         return;
     }
