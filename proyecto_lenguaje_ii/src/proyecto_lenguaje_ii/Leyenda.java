@@ -17,27 +17,23 @@ public class Leyenda implements Serializable {
     private String nombre;
     private String pais;
     private String anioMundial;
-    private String golesEnMundiales;
 
-    public Leyenda(String id, String nombre, String pais, String anioMundial, String golesEnMundiales) {
+    public Leyenda(String id, String nombre, String pais, String anioMundial) {
         this.id = id;
         this.nombre = nombre;
         this.pais = pais;
         this.anioMundial = anioMundial;
-        this.golesEnMundiales = golesEnMundiales;
     }
 
-    public String getId()                { return id; }
-    public String getNombre()            { return nombre; }
-    public String getPais()              { return pais; }
-    public String getAnioMundial()       { return anioMundial; }
-    public String getGolesEnMundiales()  { return golesEnMundiales; }
+    public String getId()            { return id; }
+    public String getNombre()        { return nombre; }
+    public String getPais()          { return pais; }
+    public String getAnioMundial()   { return anioMundial; }
 
-    public void setId(String id)                               { this.id = id; }
-    public void setNombre(String nombre)                       { this.nombre = nombre; }
-    public void setPais(String pais)                           { this.pais = pais; }
-    public void setAnioMundial(String anioMundial)             { this.anioMundial = anioMundial; }
-    public void setGolesEnMundiales(String golesEnMundiales)   { this.golesEnMundiales = golesEnMundiales; }
+    public void setId(String id)                   { this.id = id; }
+    public void setNombre(String nombre)           { this.nombre = nombre; }
+    public void setPais(String pais)               { this.pais = pais; }
+    public void setAnioMundial(String anioMundial) { this.anioMundial = anioMundial; }
 
     @Override
     public String toString() {

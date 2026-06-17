@@ -34,7 +34,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="btnSeleccion" min="-2" max="-2" attributes="0"/>
                           <Component id="btnUsuarios" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnPosicion" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnLeyenda" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="btnEstadio" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="btnJugador" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="btnFigurita" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -55,7 +55,7 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="btnSeleccion" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="btnPosicion" min="-2" max="-2" attributes="0"/>
+              <Component id="btnLeyenda" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="btnEstadio" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
@@ -91,12 +91,12 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSeleccionActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btnPosicion">
+    <Component class="javax.swing.JButton" name="btnLeyenda">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Posiciones"/>
+        <Property name="text" type="java.lang.String" value="Leyendas"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPosicionActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLeyendaActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnEstadio">

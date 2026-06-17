@@ -31,7 +31,7 @@ public class w_principal extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         btnUsuarios = new javax.swing.JButton();
         btnSeleccion = new javax.swing.JButton();
-        btnPosicion = new javax.swing.JButton();
+        btnLeyenda = new javax.swing.JButton();
         btnEstadio = new javax.swing.JButton();
         btnJugador = new javax.swing.JButton();
         btnFigurita = new javax.swing.JButton();
@@ -47,8 +47,8 @@ public class w_principal extends javax.swing.JFrame {
         btnSeleccion.setText("Selecciones");
         btnSeleccion.addActionListener(this::btnSeleccionActionPerformed);
 
-        btnPosicion.setText("Posiciones");
-        btnPosicion.addActionListener(this::btnPosicionActionPerformed);
+        btnLeyenda.setText("Leyendas");
+        btnLeyenda.addActionListener(this::btnLeyendaActionPerformed);
 
         btnEstadio.setText("Estadios");
         btnEstadio.addActionListener(this::btnEstadioActionPerformed);
@@ -76,7 +76,7 @@ public class w_principal extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnSeleccion)
                             .addComponent(btnUsuarios)
-                            .addComponent(btnPosicion)
+                            .addComponent(btnLeyenda)
                             .addComponent(btnEstadio)
                             .addComponent(btnJugador)
                             .addComponent(btnFigurita)
@@ -92,7 +92,7 @@ public class w_principal extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnSeleccion)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnPosicion)
+                .addComponent(btnLeyenda)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnEstadio)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -115,9 +115,9 @@ public class w_principal extends javax.swing.JFrame {
         // new w_seleccion().setVisible(true);
     }//GEN-LAST:event_btnSeleccionActionPerformed
 
-    private void btnPosicionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPosicionActionPerformed
-        // new w_posicion().setVisible(true);
-    }//GEN-LAST:event_btnPosicionActionPerformed
+    private void btnLeyendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLeyendaActionPerformed
+        new w_leyendas().setVisible(true);
+    }//GEN-LAST:event_btnLeyendaActionPerformed
 
     private void btnEstadioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEstadioActionPerformed
         // new w_estadio().setVisible(true);
@@ -165,7 +165,7 @@ public class w_principal extends javax.swing.JFrame {
     private javax.swing.JButton btnEstadio;
     private javax.swing.JButton btnFigurita;
     private javax.swing.JButton btnJugador;
-    private javax.swing.JButton btnPosicion;
+    private javax.swing.JButton btnLeyenda;
     private javax.swing.JButton btnSeleccion;
     private javax.swing.JButton btnUsuarios;
     private javax.swing.JLabel jLabel1;
