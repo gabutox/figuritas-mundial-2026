@@ -112,7 +112,7 @@ public class w_principal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnUsuariosActionPerformed
 
     private void btnSeleccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionActionPerformed
-        // new w_seleccion().setVisible(true);
+        new w_seleccion().setVisible(true);
     }//GEN-LAST:event_btnSeleccionActionPerformed
 
     private void btnLeyendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLeyendaActionPerformed
