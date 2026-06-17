@@ -55,14 +55,15 @@ String rutaUsuarios;
 
         Usuario.setText("Usuario");
 
-        txtUsuario.setText("jTextField1");
+        txtUsuario.setColumns(15);
         txtUsuario.addActionListener(this::txtUsuarioActionPerformed);
 
         jLabel1.setText("Clave");
 
-        txtClave.setText("jPasswordField1");
+        txtClave.setColumns(15);
+        txtClave.addActionListener(this::txtClaveActionPerformed);
 
-        btnIngresar.setText("jButton1");
+        btnIngresar.setText("Ingresar");
         btnIngresar.addActionListener(this::btnIngresarActionPerformed);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -71,13 +72,13 @@ String rutaUsuarios;
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(49, 49, 49)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnIngresar)
-                    .addComponent(txtClave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtClave)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Usuario))
-                .addContainerGap(261, Short.MAX_VALUE))
+                    .addComponent(Usuario)
+                    .addComponent(txtUsuario))
+                .addContainerGap(187, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -125,6 +126,10 @@ for (Usuario u : estructura_usuarios) {
 }
 JOptionPane.showMessageDialog(null, "Usuario o clave incorrectos");
     }//GEN-LAST:event_btnIngresarActionPerformed
+
+    private void txtClaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtClaveActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtClaveActionPerformed
 
     /**
      * @param args the command line arguments
