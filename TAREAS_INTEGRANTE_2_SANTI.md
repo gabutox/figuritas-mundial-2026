@@ -1,4 +1,4 @@
-# TAREAS — INTEGRANTE 2
+# TAREAS — SANTI
 ## Modulo Jugador: Estadio + Jugador
 
 ---
