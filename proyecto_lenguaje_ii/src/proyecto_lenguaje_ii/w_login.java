@@ -31,9 +31,6 @@ String rutaUsuarios;
         e.printStackTrace();
     }
     LeerDatos_usuario();
-    if (estructura_usuarios.isEmpty()) {
-        estructura_usuarios.add(new Usuario("1", "Admin", "admin", "1234"));
-    }
 }
 
     /**
