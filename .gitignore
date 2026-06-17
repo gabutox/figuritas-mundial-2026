@@ -1,0 +1,12 @@
+# NetBeans archivos generados automaticamente (no subir)
+build/
+dist/
+nbproject/private/
+*.class
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# Los archivos de datos SI se suben (son necesarios para que el proyecto arranque)
+# usuarios.txt, selecciones.txt, etc. -> se suben vacios inicialmente
