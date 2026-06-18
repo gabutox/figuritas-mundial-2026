@@ -15,11 +15,13 @@ public class w_coleccion extends javax.swing.JFrame {
         String rutaColeccion = "";
         String rutaUsuarios = "";
         String rutaFiguritas = "";
+        String rutaJugadores = "";
 
         // Listas en memoria RAM
         ArrayList<ColeccionFigurita> estructura_coleccion = new ArrayList<>();
         ArrayList<Usuario> estructura_usuarios = new ArrayList<>();
-        ArrayList<Figurita> estructura_figuritas = new ArrayList<>();   
+        ArrayList<Figurita> estructura_figuritas = new ArrayList<>();
+        ArrayList<Jugador> estructura_jugadores = new ArrayList<>();   
 
     /**
      * Creates new form w_coleccion
@@ -32,10 +34,30 @@ public class w_coleccion extends javax.swing.JFrame {
             rutaColeccion = ini.get("Archivos", "coleccion");
             rutaUsuarios = ini.get("Archivos", "usuarios");
             rutaFiguritas = ini.get("Archivos", "figuritas");
+            rutaJugadores = ini.get("Archivos", "jugadores");
             LeerDatos_usuarios();
             LeerDatos_figuritas();
+            LeerDatos_jugadores();
             LeerDatos_coleccion();
-            
+
+            if (estructura_coleccion.isEmpty()) {
+                // Admin tiene varias figuritas
+                estructura_coleccion.add(new ColeccionFigurita("1", "1", "1", "TENGO", "1"));     // Messi normal
+                estructura_coleccion.add(new ColeccionFigurita("2", "1", "2", "TENGO", "2"));     // Messi Dorada
+                estructura_coleccion.add(new ColeccionFigurita("3", "1", "3", "TENGO", "1"));     // Julian Alvarez
+                estructura_coleccion.add(new ColeccionFigurita("4", "1", "7", "TENGO", "1"));     // Vinicius
+                estructura_coleccion.add(new ColeccionFigurita("5", "1", "10", "TENGO", "1"));    // Mbappe
+                estructura_coleccion.add(new ColeccionFigurita("6", "1", "11", "ME_FALTA", "0")); // Mbappe Dorada
+                estructura_coleccion.add(new ColeccionFigurita("7", "1", "13", "ME_FALTA", "0")); // Lamine Yamal
+                estructura_coleccion.add(new ColeccionFigurita("8", "1", "16", "REPETIDA", "3")); // Harry Kane
+                // Guardar
+                java.io.File archCol = new java.io.File(rutaColeccion);
+                java.io.FileOutputStream fosCol = new java.io.FileOutputStream(archCol);
+                java.io.ObjectOutputStream oosCol = new java.io.ObjectOutputStream(fosCol);
+                oosCol.writeObject(estructura_coleccion);
+                oosCol.close(); fosCol.close();
+            }
+
             CargarComboUsuarios();
             CargarComboFiguritas();
             MostrarDatos_coleccion();
@@ -74,7 +96,12 @@ public class w_coleccion extends javax.swing.JFrame {
 
         cmbFiguritas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        cmbEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "TIENE", "FALTA" }));
+        cmbEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "TIENE", "ME_FALTA", "REPETIDA" }));
+        cmbEstado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbEstadoActionPerformed(evt);
+            }
+        });
 
         btnGrabarCol.setText("Grabar");
         btnGrabarCol.addActionListener(new java.awt.event.ActionListener() {
@@ -114,60 +141,52 @@ public class w_coleccion extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(58, Short.MAX_VALUE)
+                .addContainerGap(50, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 642, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel3)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
-                                        .addComponent(cmbFiguritas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel2)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(cmbUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(460, 460, 460))
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
+                                .addComponent(cmbFiguritas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addGap(33, 33, 33)
-                                .addComponent(cmbEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addComponent(btnGrabarCol))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btnAtrasCol)))
-                .addGap(25, 25, 25))
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(cmbUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(317, 317, 317)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnGrabarCol)
+                            .addComponent(btnAtrasCol))
+                        .addGap(168, 168, 168))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addGap(33, 33, 33)
+                        .addComponent(cmbEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(546, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(cmbUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btnGrabarCol)))
+                .addGap(19, 19, 19)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cmbUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2)
+                    .addComponent(btnGrabarCol))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cmbFiguritas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
+                    .addComponent(jLabel3)
+                    .addComponent(btnAtrasCol))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(cmbEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
-                .addComponent(btnAtrasCol)
-                .addContainerGap())
+                .addContainerGap(62, Short.MAX_VALUE))
         );
 
         pack();
@@ -177,6 +196,7 @@ public class w_coleccion extends javax.swing.JFrame {
         // TODO add your handling code here:
         w_principal menu = new w_principal();
         menu.setVisible(true);
+        menu.setLocationRelativeTo(null);
         this.dispose();
     }//GEN-LAST:event_btnAtrasColActionPerformed
 
@@ -194,7 +214,7 @@ public class w_coleccion extends javax.swing.JFrame {
         try {
             
         // 2. Capturamos los datos limpios de los combos
-        String usuarioSeleccionado = cmbUsuarios.getSelectedItem().toString().split(" - ")[0];
+        String usuarioSeleccionado = cmbUsuarios.getSelectedItem().toString();
         String figuritaSeleccionada = cmbFiguritas.getSelectedItem().toString().split(" - ")[0];
         String estadoSeleccionado = cmbEstado.getSelectedItem().toString();
         
@@ -234,6 +254,10 @@ public class w_coleccion extends javax.swing.JFrame {
     }
 
     }//GEN-LAST:event_btnGrabarColActionPerformed
+
+    private void cmbEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbEstadoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbEstadoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -309,6 +333,18 @@ public void LeerDatos_figuritas() {
     } catch (Exception e) { System.out.println("Error figuritas: " + e.getMessage()); }
 }
 
+public void LeerDatos_jugadores() {
+    try {
+        java.io.File archivo = new java.io.File(rutaJugadores);
+        if (archivo.exists()) {
+            java.io.FileInputStream fis = new java.io.FileInputStream(archivo);
+            java.io.ObjectInputStream ois = new java.io.ObjectInputStream(fis);
+            estructura_jugadores = (ArrayList<Jugador>) ois.readObject();
+            ois.close(); fis.close();
+        }
+    } catch (Exception e) { System.out.println("Error jugadores: " + e.getMessage()); }
+}
+
 public void LeerDatos_coleccion() {
     try {
         java.io.File archivo = new java.io.File(rutaColeccion);
@@ -324,22 +360,22 @@ public void LeerDatos_coleccion() {
 public void CargarComboUsuarios() {
     cmbUsuarios.removeAllItems();
     for (Usuario u : estructura_usuarios) {
-        cmbUsuarios.addItem(u.getId() + " - " + u.getNombre());
+        cmbUsuarios.addItem(u.getNombre());
     }
 }
 
 public void CargarComboFiguritas() {
     cmbFiguritas.removeAllItems();
-    
-    cmbFiguritas.addItem("--- Busca tu figurita ---");
-    
+    cmbFiguritas.addItem("--- Selecciona una figurita ---");
     for (Figurita f : estructura_figuritas) {
-        String id = f.getId().contains("jTextField") ? "ID" : f.getId();
-        String numero = f.getNumero().contains("jTextField") ? "0" : f.getNumero();
-        String tipo = f.getTipo().contains("jTextField") ? "Común" : f.getTipo();
-        
-        // Las agregamos abajo del buscador
-        cmbFiguritas.addItem(id + " - Núm: " + numero + " (" + tipo + ")");
+        String nombreJugador = f.getJugadorId();
+        for (Jugador j : estructura_jugadores) {
+            if (j.getId().equals(f.getJugadorId())) {
+                nombreJugador = j.getNombre();
+                break;
+            }
+        }
+        cmbFiguritas.addItem(f.getId() + " - N°" + f.getNumero() + " " + f.getTipo() + " (" + nombreJugador + ")");
     }
 }
 
@@ -358,10 +394,33 @@ public void MostrarDatos_coleccion() {
     
     // 3. Recorremos la lista en memoria y cargamos las filas
     for (ColeccionFigurita col : estructura_coleccion) {
+        // Buscar el nombre del usuario
+        String nombreUsuario = col.getUsuarioId();
+        for (Usuario u : estructura_usuarios) {
+            if (u.getId().equals(col.getUsuarioId()) || u.getNombre().equals(col.getUsuarioId())) {
+                nombreUsuario = u.getNombre();
+                break;
+            }
+        }
+        // Buscar la descripcion de la figurita con nombre del jugador
+        String descripcionFigurita = col.getFiguritaId();
+        for (Figurita f : estructura_figuritas) {
+            if (f.getId().equals(col.getFiguritaId())) {
+                String nombreJugador = f.getJugadorId();
+                for (Jugador j : estructura_jugadores) {
+                    if (j.getId().equals(f.getJugadorId())) {
+                        nombreJugador = j.getNombre();
+                        break;
+                    }
+                }
+                descripcionFigurita = "N°" + f.getNumero() + " - " + f.getTipo() + " (" + nombreJugador + ")";
+                break;
+            }
+        }
         Object[] fila = {
-            col.getUsuarioId(),   // ID o nombre del usuario
-            col.getFiguritaId(),  // ID de la figurita
-            col.getEstado()       // "TIENE" o "FALTA"
+            nombreUsuario,
+            descripcionFigurita,
+            col.getEstado()
         };
         modelo.addRow(fila);
     }

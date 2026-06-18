@@ -33,6 +33,40 @@ public class w_figurita extends javax.swing.JFrame {
             //Las tareas de arranque chango
             this.LeerDatos_figurita();
             this.LeerDatos_jugadores();
+            if (estructura_figuritas.isEmpty()) {
+                // Argentina
+                estructura_figuritas.add(new Figurita("1", "10", "Jugador", "7"));    // Messi
+                estructura_figuritas.add(new Figurita("2", "10", "Dorada", "7"));     // Messi Dorada
+                estructura_figuritas.add(new Figurita("3", "9", "Jugador", "8"));     // Julian Alvarez
+                estructura_figuritas.add(new Figurita("4", "23", "Jugador", "1"));    // E. Martinez
+                estructura_figuritas.add(new Figurita("5", "7", "Jugador", "5"));     // De Paul
+                estructura_figuritas.add(new Figurita("6", "20", "Jugador", "6"));    // Mac Allister
+                // Brasil
+                estructura_figuritas.add(new Figurita("7", "7", "Jugador", "14"));    // Vinicius
+                estructura_figuritas.add(new Figurita("8", "11", "Jugador", "15"));   // Neymar
+                estructura_figuritas.add(new Figurita("9", "10", "Jugador", "16"));   // Raphinha
+                // Francia
+                estructura_figuritas.add(new Figurita("10", "10", "Jugador", "23"));  // Mbappe
+                estructura_figuritas.add(new Figurita("11", "10", "Dorada", "23"));   // Mbappe Dorada
+                estructura_figuritas.add(new Figurita("12", "11", "Jugador", "24"));  // Olise
+                // España
+                estructura_figuritas.add(new Figurita("13", "19", "Jugador", "31"));  // Lamine Yamal
+                estructura_figuritas.add(new Figurita("14", "17", "Jugador", "32"));  // Nico Williams
+                estructura_figuritas.add(new Figurita("15", "8", "Jugador", "29"));   // Pedri
+                // Inglaterra
+                estructura_figuritas.add(new Figurita("16", "9", "Jugador", "40"));   // Harry Kane
+                estructura_figuritas.add(new Figurita("17", "10", "Jugador", "37"));  // Bellingham
+                estructura_figuritas.add(new Figurita("18", "7", "Jugador", "39"));   // Bukayo Saka
+                // Alemania
+                estructura_figuritas.add(new Figurita("19", "10", "Jugador", "45"));  // Wirtz
+                estructura_figuritas.add(new Figurita("20", "14", "Jugador", "46"));  // Musiala
+                // Mexico
+                estructura_figuritas.add(new Figurita("21", "22", "Jugador", "54"));  // Lozano
+                estructura_figuritas.add(new Figurita("22", "9", "Jugador", "55"));   // Raul Jimenez
+                // USA
+                estructura_figuritas.add(new Figurita("23", "10", "Jugador", "61"));  // Pulisic
+                this.GrabarDatos_figurita();
+            }
             this.CargarComboJugador();
             this.MostrarDatos_figurita();
             
@@ -71,7 +105,7 @@ public class w_figurita extends javax.swing.JFrame {
         jLabel1.setText("ID:");
 
         txtId.setColumns(10);
-        txtId.setText("Ingresa el ID...");
+        txtId.setText("");
         txtId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtIdActionPerformed(evt);
@@ -83,16 +117,21 @@ public class w_figurita extends javax.swing.JFrame {
         jLabel3.setText("Tipo: ");
 
         txtNumero.setColumns(10);
-        txtNumero.setText("Ingresa el numero...");
+        txtNumero.setText("");
 
         txtTipo.setColumns(10);
-        txtTipo.setText("Ingrese el tipo..\n");
+        txtTipo.setText("");
 
         jLabel4.setText("Jugador:");
 
         cmbJugadores.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         btnNuevo.setText("Nuevo");
+        btnNuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LimpiarCampos();
+            }
+        });
 
         btnGrabar.setText("Grabar");
         btnGrabar.addActionListener(new java.awt.event.ActionListener() {
@@ -206,6 +245,7 @@ public class w_figurita extends javax.swing.JFrame {
         // TODO add your handling code here:
         w_principal menu = new w_principal();
         menu.setVisible(true);
+        menu.setLocationRelativeTo(null);
         this.dispose();
     }//GEN-LAST:event_btnAtrasActionPerformed
 
@@ -315,17 +355,24 @@ public void MostrarDatos_figurita() {
     modelo.addColumn("ID");
     modelo.addColumn("Número");
     modelo.addColumn("Tipo");
-    modelo.addColumn("ID Jugador");
-    
+    modelo.addColumn("Jugador");
+
     // 3. Recorremos nuestra lista de figuritas en memoria
     for (Figurita f : estructura_figuritas) {
-        // Creamos una fila de texto con los datos de la figurita
+        // Buscar el nombre del jugador por su ID
+        String nombreJugador = f.getJugadorId();
+        for (Jugador j : estructura_jugadores) {
+            if (j.getId().equals(f.getJugadorId())) {
+                nombreJugador = j.getNombre();
+                break;
+            }
+        }
         String[] fila = new String[4];
         fila[0] = f.getId();
         fila[1] = f.getNumero();
         fila[2] = f.getTipo();
-        fila[3] = f.getJugadorId();
-        
+        fila[3] = nombreJugador;
+
         // Agregamos la fila al modelo
         modelo.addRow(fila);
     }
