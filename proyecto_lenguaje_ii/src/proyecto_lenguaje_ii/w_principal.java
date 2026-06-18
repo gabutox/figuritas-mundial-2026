@@ -142,11 +142,17 @@ public class w_principal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLeyendaActionPerformed
 
     private void btnEstadioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEstadioActionPerformed
-        // new w_estadio().setVisible(true);
+    w_estadio u = new w_estadio();
+    u.setVisible(true);
+    u.setLocationRelativeTo(null);
+    this.dispose();
     }//GEN-LAST:event_btnEstadioActionPerformed
 
     private void btnJugadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnJugadorActionPerformed
-        // new w_jugador().setVisible(true);
+    w_jugador u = new w_jugador();
+    u.setVisible(true);
+    u.setLocationRelativeTo(null);
+    this.dispose();
     }//GEN-LAST:event_btnJugadorActionPerformed
 
     private void btnFiguritaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFiguritaActionPerformed
