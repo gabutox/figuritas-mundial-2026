@@ -108,15 +108,24 @@ public class w_principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsuariosActionPerformed
-        new w_usuarios().setVisible(true);
+    w_usuarios u = new w_usuarios();
+    u.setVisible(true);
+    u.setLocationRelativeTo(null);
+    this.dispose();
     }//GEN-LAST:event_btnUsuariosActionPerformed
 
     private void btnSeleccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionActionPerformed
-        new w_seleccion().setVisible(true);
+    w_seleccion u = new w_seleccion();
+    u.setVisible(true);
+    u.setLocationRelativeTo(null);
+    this.dispose();
     }//GEN-LAST:event_btnSeleccionActionPerformed
 
     private void btnLeyendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLeyendaActionPerformed
-        new w_leyendas().setVisible(true);
+    w_leyendas u = new w_leyendas();
+    u.setVisible(true);
+    u.setLocationRelativeTo(null);
+    this.dispose();
     }//GEN-LAST:event_btnLeyendaActionPerformed
 
     private void btnEstadioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEstadioActionPerformed

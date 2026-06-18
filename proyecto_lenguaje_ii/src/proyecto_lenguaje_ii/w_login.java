@@ -116,8 +116,10 @@ String pass = new String(txtClave.getPassword());
 for (Usuario u : estructura_usuarios) {
     if (u.getUsuario().equals(user) && u.getClave().equals(pass)) {
         JOptionPane.showMessageDialog(null, "Bienvenido " + u.getNombre());
-        new w_principal().setVisible(true);
-        this.dispose();
+        w_principal p = new w_principal();
+        p.setVisible(true);
+        p.setLocationRelativeTo(null);
+        this.dispose();  
         return;
     }
 }
