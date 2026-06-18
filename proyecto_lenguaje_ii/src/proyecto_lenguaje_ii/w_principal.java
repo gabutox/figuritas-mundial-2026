@@ -142,15 +142,15 @@ public class w_principal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLeyendaActionPerformed
 
     private void btnEstadioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEstadioActionPerformed
-        // new w_estadio().setVisible(true);
+        new w_estadio().setVisible(true);
     }//GEN-LAST:event_btnEstadioActionPerformed
 
     private void btnJugadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnJugadorActionPerformed
-        // new w_jugador().setVisible(true);
+        new w_jugador().setVisible(true);
     }//GEN-LAST:event_btnJugadorActionPerformed
 
     private void btnFiguritaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFiguritaActionPerformed
-        // new w_figurita().setVisible(true);
+
         w_figurita ventanaFigu = new w_figurita();
         
         ventanaFigu.setVisible(true);
@@ -159,7 +159,9 @@ public class w_principal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnFiguritaActionPerformed
 
     private void btnColeccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnColeccionActionPerformed
-        // new w_coleccion().setVisible(true);
+         w_coleccion ventanaCol = new w_coleccion();
+         ventanaCol.setVisible(true);
+         this.dispose();
     }//GEN-LAST:event_btnColeccionActionPerformed
 
     private void btnAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtrasActionPerformed
