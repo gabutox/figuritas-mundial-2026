@@ -6,11 +6,15 @@
 package proyecto_lenguaje_ii;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
+import java.io.*;
+import javax.swing.JOptionPane;
 /**
  *
  * @author norav
  */
 public class w_jugador extends javax.swing.JFrame {
+    String rutaArchivo = "jugadores.dat";
+    
 ArrayList<Jugador> estructura_jugadores = new ArrayList<>();
 ArrayList<Seleccion> estructura_selecciones = new ArrayList<>();
 
@@ -22,7 +26,8 @@ String rutaSelecciones;
 
     public w_jugador() {
         initComponents();
-        
+        LeerDatos_jugador();
+         MostrarDatos_jugador();
         CargarComboPosicion();
     }
 
@@ -62,6 +67,7 @@ String rutaSelecciones;
          j.setSeleccionId(seleccion.split("-")[0]);
          
          estructura_jugadores.add(j);
+         MostrarDatos_jugador();
      } 
      
      public void MostrarDatos_jugador() {
@@ -199,7 +205,7 @@ String rutaSelecciones;
 
     private void GrabarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GrabarActionPerformed
     Agregar_jugador();
-    MostrarDatos_jugador();
+    GrabarDatos_jugador();
     }//GEN-LAST:event_GrabarActionPerformed
 
     private void NuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NuevoActionPerformed
@@ -212,7 +218,51 @@ String rutaSelecciones;
         
         txtID.requestFocus();
     }//GEN-LAST:event_NuevoActionPerformed
+   public void GrabarDatos_jugador(){
 
+    try {
+
+        ObjectOutputStream salida =
+            new ObjectOutputStream(
+                new FileOutputStream(rutaArchivo)
+            );
+
+        salida.writeObject(estructura_jugadores);
+
+        salida.close();
+
+    } catch(Exception e){
+
+        JOptionPane.showMessageDialog(null, e.getMessage());
+
+    }
+}
+   public void LeerDatos_jugador(){
+
+    File archivo = new File(rutaArchivo);
+
+    if(!archivo.exists()){
+        return;
+    }
+
+    try {
+
+        ObjectInputStream entrada =
+            new ObjectInputStream(
+                new FileInputStream(rutaArchivo)
+            );
+
+        estructura_jugadores =
+            (ArrayList<Jugador>) entrada.readObject();
+
+        entrada.close();
+
+    } catch(Exception e){
+
+        JOptionPane.showMessageDialog(null, e.getMessage());
+
+    }
+}
     /**
      * @param args the command line arguments
      */
