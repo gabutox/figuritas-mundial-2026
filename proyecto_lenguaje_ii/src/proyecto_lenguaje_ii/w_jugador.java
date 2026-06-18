@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
  * @author norav
  */
 public class w_jugador extends javax.swing.JFrame {
-    String rutaArchivo = "jugadores.dat";
+    String rutaArchivo = "jugadores.txt";
     
 ArrayList<Jugador> estructura_jugadores = new ArrayList<>();
 ArrayList<Seleccion> estructura_selecciones = new ArrayList<>();
@@ -27,6 +27,99 @@ String rutaSelecciones;
     public w_jugador() {
         initComponents();
         LeerDatos_jugador();
+        if (estructura_jugadores.isEmpty()) {
+
+    // ARGENTINA
+    estructura_jugadores.add(new Jugador("1","Emiliano Martinez","23","Arquero","ARG"));
+    estructura_jugadores.add(new Jugador("2","Nahuel Molina","26","Defensa","ARG"));
+    estructura_jugadores.add(new Jugador("3","Cristian Romero","13","Defensa","ARG"));
+    estructura_jugadores.add(new Jugador("4","Nicolas Otamendi","19","Defensa","ARG"));
+    estructura_jugadores.add(new Jugador("5","Rodrigo De Paul","7","Mediocampista","ARG"));
+    estructura_jugadores.add(new Jugador("6","Alexis Mac Allister","20","Mediocampista","ARG"));
+    estructura_jugadores.add(new Jugador("7","Lionel Messi","10","Delantero","ARG"));
+    estructura_jugadores.add(new Jugador("8","Julian Alvarez","9","Delantero","ARG"));
+
+
+    // BRASIL
+    estructura_jugadores.add(new Jugador("9","Alisson Becker","1","Arquero","BRA"));
+    estructura_jugadores.add(new Jugador("10","Marquinhos","4","Defensa","BRA"));
+    estructura_jugadores.add(new Jugador("11","Eder Militao","3","Defensa","BRA"));
+    estructura_jugadores.add(new Jugador("12","Bruno Guimaraes","8","Mediocampista","BRA"));
+    estructura_jugadores.add(new Jugador("13","Casemiro","5","Mediocampista","BRA"));
+    estructura_jugadores.add(new Jugador("14","Vinicius Jr","7","Delantero","BRA"));
+    estructura_jugadores.add(new Jugador("15","Rodrygo","11","Delantero","BRA"));
+    estructura_jugadores.add(new Jugador("16","Raphinha","10","Delantero","BRA"));
+
+
+    // FRANCIA
+    estructura_jugadores.add(new Jugador("17","Mike Maignan","16","Arquero","FRA"));
+    estructura_jugadores.add(new Jugador("18","Theo Hernandez","22","Defensa","FRA"));
+    estructura_jugadores.add(new Jugador("19","William Saliba","2","Defensa","FRA"));
+    estructura_jugadores.add(new Jugador("20","Jules Kounde","5","Defensa","FRA"));
+    estructura_jugadores.add(new Jugador("21","Eduardo Camavinga","6","Mediocampista","FRA"));
+    estructura_jugadores.add(new Jugador("22","Adrien Rabiot","14","Mediocampista","FRA"));
+    estructura_jugadores.add(new Jugador("23","Kylian Mbappe","10","Delantero","FRA"));
+    estructura_jugadores.add(new Jugador("24","Olivier Giroud","9","Delantero","FRA"));
+
+
+    // ESPAÑA
+    estructura_jugadores.add(new Jugador("25","Unai Simon","23","Arquero","ESP"));
+    estructura_jugadores.add(new Jugador("26","Dani Carvajal","2","Defensa","ESP"));
+    estructura_jugadores.add(new Jugador("27","Aymeric Laporte","14","Defensa","ESP"));
+    estructura_jugadores.add(new Jugador("28","Rodri","16","Mediocampista","ESP"));
+    estructura_jugadores.add(new Jugador("29","Pedri","8","Mediocampista","ESP"));
+    estructura_jugadores.add(new Jugador("30","Gavi","9","Mediocampista","ESP"));
+    estructura_jugadores.add(new Jugador("31","Lamine Yamal","19","Delantero","ESP"));
+    estructura_jugadores.add(new Jugador("32","Alvaro Morata","7","Delantero","ESP"));
+    
+    // INGLATERRA
+estructura_jugadores.add(new Jugador("33","Jordan Pickford","1","Arquero","ENG"));
+estructura_jugadores.add(new Jugador("34","Kyle Walker","2","Defensa","ENG"));
+estructura_jugadores.add(new Jugador("35","John Stones","5","Defensa","ENG"));
+estructura_jugadores.add(new Jugador("36","Declan Rice","4","Mediocampista","ENG"));
+estructura_jugadores.add(new Jugador("37","Jude Bellingham","10","Mediocampista","ENG"));
+estructura_jugadores.add(new Jugador("38","Phil Foden","11","Delantero","ENG"));
+estructura_jugadores.add(new Jugador("39","Bukayo Saka","7","Delantero","ENG"));
+estructura_jugadores.add(new Jugador("40","Harry Kane","9","Delantero","ENG"));
+
+
+
+// ALEMANIA
+estructura_jugadores.add(new Jugador("41","Manuel Neuer","1","Arquero","GER"));
+estructura_jugadores.add(new Jugador("42","Antonio Rudiger","2","Defensa","GER"));
+estructura_jugadores.add(new Jugador("43","Joshua Kimmich","6","Mediocampista","GER"));
+estructura_jugadores.add(new Jugador("44","Ilkay Gundogan","8","Mediocampista","GER"));
+estructura_jugadores.add(new Jugador("45","Florian Wirtz","10","Mediocampista","GER"));
+estructura_jugadores.add(new Jugador("46","Jamal Musiala","14","Delantero","GER"));
+estructura_jugadores.add(new Jugador("47","Kai Havertz","7","Delantero","GER"));
+estructura_jugadores.add(new Jugador("48","Niclas Fullkrug","9","Delantero","GER"));
+
+
+
+// MEXICO
+estructura_jugadores.add(new Jugador("49","Guillermo Ochoa","13","Arquero","MEX"));
+estructura_jugadores.add(new Jugador("50","Jorge Sanchez","2","Defensa","MEX"));
+estructura_jugadores.add(new Jugador("51","Edson Alvarez","4","Mediocampista","MEX"));
+estructura_jugadores.add(new Jugador("52","Luis Chavez","24","Mediocampista","MEX"));
+estructura_jugadores.add(new Jugador("53","Orbelin Pineda","17","Mediocampista","MEX"));
+estructura_jugadores.add(new Jugador("54","Hirving Lozano","22","Delantero","MEX"));
+estructura_jugadores.add(new Jugador("55","Raul Jimenez","9","Delantero","MEX"));
+estructura_jugadores.add(new Jugador("56","Santiago Gimenez","11","Delantero","MEX"));
+
+
+
+// ESTADOS UNIDOS
+estructura_jugadores.add(new Jugador("57","Matt Turner","1","Arquero","USA"));
+estructura_jugadores.add(new Jugador("58","Antonee Robinson","5","Defensa","USA"));
+estructura_jugadores.add(new Jugador("59","Tyler Adams","4","Mediocampista","USA"));
+estructura_jugadores.add(new Jugador("60","Weston McKennie","8","Mediocampista","USA"));
+estructura_jugadores.add(new Jugador("61","Christian Pulisic","10","Delantero","USA"));
+estructura_jugadores.add(new Jugador("62","Timothy Weah","21","Delantero","USA"));
+estructura_jugadores.add(new Jugador("63","Folarin Balogun","9","Delantero","USA"));
+estructura_jugadores.add(new Jugador("64","Ricardo Pepi","14","Delantero","USA"));
+
+    GrabarDatos_jugador();
+}
          MostrarDatos_jugador();
         CargarComboPosicion();
     }
