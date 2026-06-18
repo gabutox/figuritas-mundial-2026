@@ -27,6 +27,8 @@ String rutaSelecciones;
     public w_jugador() {
         initComponents();
         LeerDatos_jugador();
+        
+        
         if (estructura_jugadores.isEmpty()) {
 
     // ARGENTINA
@@ -47,7 +49,7 @@ String rutaSelecciones;
     estructura_jugadores.add(new Jugador("12","Bruno Guimaraes","8","Mediocampista","BRA"));
     estructura_jugadores.add(new Jugador("13","Casemiro","5","Mediocampista","BRA"));
     estructura_jugadores.add(new Jugador("14","Vinicius Jr","7","Delantero","BRA"));
-    estructura_jugadores.add(new Jugador("15","Rodrygo","11","Delantero","BRA"));
+    estructura_jugadores.add(new Jugador("15","Neymar Jr","11","Delantero","BRA"));
     estructura_jugadores.add(new Jugador("16","Raphinha","10","Delantero","BRA"));
 
 
@@ -59,26 +61,26 @@ String rutaSelecciones;
     estructura_jugadores.add(new Jugador("21","Eduardo Camavinga","6","Mediocampista","FRA"));
     estructura_jugadores.add(new Jugador("22","Adrien Rabiot","14","Mediocampista","FRA"));
     estructura_jugadores.add(new Jugador("23","Kylian Mbappe","10","Delantero","FRA"));
-    estructura_jugadores.add(new Jugador("24","Olivier Giroud","9","Delantero","FRA"));
+    estructura_jugadores.add(new Jugador("24","Michael Olise","11","Delantero","FRA"));
 
 
     // ESPAÑA
     estructura_jugadores.add(new Jugador("25","Unai Simon","23","Arquero","ESP"));
-    estructura_jugadores.add(new Jugador("26","Dani Carvajal","2","Defensa","ESP"));
+    estructura_jugadores.add(new Jugador("26","Paul Cubarsí","22","Defensa","ESP"));
     estructura_jugadores.add(new Jugador("27","Aymeric Laporte","14","Defensa","ESP"));
     estructura_jugadores.add(new Jugador("28","Rodri","16","Mediocampista","ESP"));
     estructura_jugadores.add(new Jugador("29","Pedri","8","Mediocampista","ESP"));
     estructura_jugadores.add(new Jugador("30","Gavi","9","Mediocampista","ESP"));
     estructura_jugadores.add(new Jugador("31","Lamine Yamal","19","Delantero","ESP"));
-    estructura_jugadores.add(new Jugador("32","Alvaro Morata","7","Delantero","ESP"));
+    estructura_jugadores.add(new Jugador("32","Nico Williams","17","Delantero","ESP"));
     
     // INGLATERRA
 estructura_jugadores.add(new Jugador("33","Jordan Pickford","1","Arquero","ENG"));
-estructura_jugadores.add(new Jugador("34","Kyle Walker","2","Defensa","ENG"));
+estructura_jugadores.add(new Jugador("34","Reece James","24","Defensa","ENG"));
 estructura_jugadores.add(new Jugador("35","John Stones","5","Defensa","ENG"));
 estructura_jugadores.add(new Jugador("36","Declan Rice","4","Mediocampista","ENG"));
 estructura_jugadores.add(new Jugador("37","Jude Bellingham","10","Mediocampista","ENG"));
-estructura_jugadores.add(new Jugador("38","Phil Foden","11","Delantero","ENG"));
+estructura_jugadores.add(new Jugador("38","Marcus Rashford","11","Delantero","ENG"));
 estructura_jugadores.add(new Jugador("39","Bukayo Saka","7","Delantero","ENG"));
 estructura_jugadores.add(new Jugador("40","Harry Kane","9","Delantero","ENG"));
 
@@ -118,20 +120,15 @@ estructura_jugadores.add(new Jugador("62","Timothy Weah","21","Delantero","USA")
 estructura_jugadores.add(new Jugador("63","Folarin Balogun","9","Delantero","USA"));
 estructura_jugadores.add(new Jugador("64","Ricardo Pepi","14","Delantero","USA"));
 
+
+
     GrabarDatos_jugador();
 }
          MostrarDatos_jugador();
+         CargarComboSeleccion();
         CargarComboPosicion();
     }
 
-   public void CargarCombosSeleccion(){
-       cmbSeleccion.removeAllItems();
-       for(Seleccion s : estructura_selecciones){
-           cmbSeleccion.addItem(
-           s.getId() + " - " + s.getNombre()
-           );
-       }
-   }
      
      public void CargarComboSeleccion(){
          cmbSeleccion.removeAllItems();
