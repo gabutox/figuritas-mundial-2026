@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 import java.io.*;
 import javax.swing.JOptionPane;
+import java.io.FileInputStream;
+import java.io.ObjectInputStream;
 /**
  *
  * @author norav
@@ -126,9 +128,20 @@ estructura_jugadores.add(new Jugador("64","Ricardo Pepi","14","Delantero","USA")
 }
          MostrarDatos_jugador();
          CargarComboSeleccion();
+         LeerDatos_selecciones();
         CargarComboPosicion();
     }
-
+    public void LeerDatos_selecciones(){
+        try{
+            File archivo = new File("selecciones.txt");
+            FileInputStream fin = new FileInputStream(archivo.getAbsolutePath());
+            ObjectInputStream ois = new ObjectInputStream(fin);
+            estructura_selecciones = (ArrayList<Seleccion>) ois.readObject();
+            fin.close();
+        } catch(Exception ex) {ex.printStackTrace();
+        
+        }
+    }
      
      public void CargarComboSeleccion(){
          cmbSeleccion.removeAllItems();
