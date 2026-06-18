@@ -151,6 +151,11 @@ public class w_principal extends javax.swing.JFrame {
 
     private void btnFiguritaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFiguritaActionPerformed
         // new w_figurita().setVisible(true);
+        w_figurita ventanaFigu = new w_figurita();
+        
+        ventanaFigu.setVisible(true);
+        
+        this.dispose();
     }//GEN-LAST:event_btnFiguritaActionPerformed
 
     private void btnColeccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnColeccionActionPerformed
