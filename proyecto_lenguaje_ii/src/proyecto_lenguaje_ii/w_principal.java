@@ -36,10 +36,12 @@ public class w_principal extends javax.swing.JFrame {
         btnJugador = new javax.swing.JButton();
         btnFigurita = new javax.swing.JButton();
         btnColeccion = new javax.swing.JButton();
+        btnAtras = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Figuritas - Mundial 2026");
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel1.setText("FIGURITAS - MUNDIAL 2026");
 
         btnUsuarios.setText("Usuarios");
         btnUsuarios.addActionListener(this::btnUsuariosActionPerformed);
@@ -62,61 +64,81 @@ public class w_principal extends javax.swing.JFrame {
         btnColeccion.setText("Mi Coleccion");
         btnColeccion.addActionListener(this::btnColeccionActionPerformed);
 
+        btnAtras.setFont(new java.awt.Font("Segoe UI", 0, 8)); // NOI18N
+        btnAtras.setText("Cerrar Sesion");
+        btnAtras.addActionListener(this::btnAtrasActionPerformed);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(149, 149, 149)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnSeleccion, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+                    .addComponent(btnUsuarios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnLeyenda, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnEstadio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnJugador, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnFigurita, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnColeccion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(123, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(132, 132, 132)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(25, 25, 25)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnSeleccion)
-                            .addComponent(btnUsuarios)
-                            .addComponent(btnLeyenda)
-                            .addComponent(btnEstadio)
-                            .addComponent(btnJugador)
-                            .addComponent(btnFigurita)
-                            .addComponent(btnColeccion))))
-                .addContainerGap(140, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(114, 114, 114))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(btnAtras, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(12, 12, 12)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnUsuarios)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnSeleccion)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnLeyenda)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnEstadio)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnJugador)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnFigurita)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnColeccion)
-                .addGap(0, 81, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnAtras)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsuariosActionPerformed
-        new w_usuarios().setVisible(true);
+    w_usuarios u = new w_usuarios();
+    u.setVisible(true);
+    u.setLocationRelativeTo(null);
+    this.dispose();
     }//GEN-LAST:event_btnUsuariosActionPerformed
 
     private void btnSeleccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionActionPerformed
-        new w_seleccion().setVisible(true);
+    w_seleccion u = new w_seleccion();
+    u.setVisible(true);
+    u.setLocationRelativeTo(null);
+    this.dispose();
     }//GEN-LAST:event_btnSeleccionActionPerformed
 
     private void btnLeyendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLeyendaActionPerformed
-        new w_leyendas().setVisible(true);
+    w_leyendas u = new w_leyendas();
+    u.setVisible(true);
+    u.setLocationRelativeTo(null);
+    this.dispose();
     }//GEN-LAST:event_btnLeyendaActionPerformed
 
     private void btnEstadioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEstadioActionPerformed
@@ -134,6 +156,13 @@ public class w_principal extends javax.swing.JFrame {
     private void btnColeccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnColeccionActionPerformed
         // new w_coleccion().setVisible(true);
     }//GEN-LAST:event_btnColeccionActionPerformed
+
+    private void btnAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtrasActionPerformed
+        w_login u = new w_login();
+        u.setVisible(true);
+        u.setLocationRelativeTo(null);
+        this.dispose();
+    }//GEN-LAST:event_btnAtrasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -161,6 +190,7 @@ public class w_principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAtras;
     private javax.swing.JButton btnColeccion;
     private javax.swing.JButton btnEstadio;
     private javax.swing.JButton btnFigurita;

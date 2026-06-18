@@ -62,6 +62,7 @@ String rutaUsuarios;
         tblUsuarios = new javax.swing.JTable();
         txtId = new javax.swing.JTextField();
         txtClave = new javax.swing.JPasswordField();
+        btnAtras = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -101,6 +102,9 @@ String rutaUsuarios;
 
         txtClave.setColumns(15);
 
+        btnAtras.setText("Atras");
+        btnAtras.addActionListener(this::btnAtrasActionPerformed);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -126,7 +130,10 @@ String rutaUsuarios;
                                     .addComponent(btnNuevo, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(btnGrabar, javax.swing.GroupLayout.Alignment.LEADING))
                                 .addGap(0, 39, Short.MAX_VALUE)))
-                        .addGap(18, 18, 18)))
+                        .addGap(18, 18, 18))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnAtras)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -154,7 +161,9 @@ String rutaUsuarios;
                         .addGap(18, 18, 18)
                         .addComponent(btnNuevo)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnGrabar))
+                        .addComponent(btnGrabar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnAtras))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -223,6 +232,14 @@ MostrarDatos_usuario();
         // TODO add your handling code here:
     }//GEN-LAST:event_txtIdActionPerformed
 
+    private void btnAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtrasActionPerformed
+    w_principal u = new w_principal();
+    u.setVisible(true);
+    u.setLocationRelativeTo(null);
+    this.dispose();
+
+    }//GEN-LAST:event_btnAtrasActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -249,6 +266,7 @@ MostrarDatos_usuario();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAtras;
     private javax.swing.JButton btnGrabar;
     private javax.swing.JButton btnNuevo;
     private javax.swing.JLabel jLabel1;
